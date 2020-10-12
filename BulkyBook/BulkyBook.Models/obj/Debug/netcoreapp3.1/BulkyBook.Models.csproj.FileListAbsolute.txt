@@ -1,0 +1,9 @@
+C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook.Models\bin\Debug\netcoreapp3.1\BulkyBook.Models.deps.json
+C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook.Models\bin\Debug\netcoreapp3.1\BulkyBook.Models.dll
+C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook.Models\bin\Debug\netcoreapp3.1\BulkyBook.Models.pdb
+C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook.Models\obj\Debug\netcoreapp3.1\BulkyBook.Models.csprojAssemblyReference.cache
+C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook.Models\obj\Debug\netcoreapp3.1\BulkyBook.Models.AssemblyInfoInputs.cache
+C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook.Models\obj\Debug\netcoreapp3.1\BulkyBook.Models.AssemblyInfo.cs
+C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook.Models\obj\Debug\netcoreapp3.1\BulkyBook.Models.csproj.CoreCompileInputs.cache
+C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook.Models\obj\Debug\netcoreapp3.1\BulkyBook.Models.dll
+C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook.Models\obj\Debug\netcoreapp3.1\BulkyBook.Models.pdb
