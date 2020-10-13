@@ -10,9 +10,9 @@ function loadDataTable() {
             'url': '/Admin/Product/GetAll'
         },
         'columns': [
-            { 'data': 'title', 'width': '10%' },
+            { 'data': 'title', 'width': '25%' },
             { 'data': 'isbn', 'width': '15%' },
-            { 'data': 'price', 'width': '15%' },
+            { 'data': 'price', 'width': '10%' },
             { 'data': 'author', 'width': '15%' },
             { 'data': 'category.name', 'width': '15%' },
             {
@@ -23,7 +23,7 @@ function loadDataTable() {
                                 <a onclick=Delete("/Admin/Product/Delete/${data}") class="btn btn-danger text-white" style="cursor: pointer"><i class="fas fa-trash-alt"></i></a>
                         </div>`;
                 },
-                'width': '40%'
+                'width': '20%'
             },
         ]
     });
