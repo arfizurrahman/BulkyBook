@@ -51,6 +51,19 @@ namespace BulkyBook.Areas.Admin.Controllers
             return View(category);
         }
 
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            var categoryFromDb = _unitOfWork.Category.Get(id);
+            if (categoryFromDb == null)
+                return Json(new {success = false, message = "Error while deleting!"});
+
+            _unitOfWork.Category.Remove(categoryFromDb);
+            _unitOfWork.Save();
+
+            return Json(new {success = true, message = "Delete Successful"});
+        }
+
         #region API CALLS
 
         [HttpGet]
