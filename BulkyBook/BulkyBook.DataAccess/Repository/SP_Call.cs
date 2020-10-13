@@ -28,7 +28,7 @@ namespace BulkyBook.DataAccess.Repository
 
         public T Single<T>(string procedureName, DynamicParameters param = null)
         {
-            using (SqlConnection sqlCon = new SqlConnection())
+            using (SqlConnection sqlCon = new SqlConnection(ConnectionString))
             {
                 sqlCon.Open();
                 var result = sqlCon.ExecuteScalar<T>(procedureName, param, commandType: CommandType.StoredProcedure);
@@ -38,7 +38,7 @@ namespace BulkyBook.DataAccess.Repository
 
         public void Execute(string procedureName, DynamicParameters param = null)
         {
-            using (SqlConnection sqlCon = new SqlConnection())
+            using (SqlConnection sqlCon = new SqlConnection(ConnectionString))
             {
                 sqlCon.Open();
                 sqlCon.Execute(procedureName, param, commandType: CommandType.StoredProcedure);
@@ -47,7 +47,7 @@ namespace BulkyBook.DataAccess.Repository
 
         public T OneRecord<T>(string procedureName, DynamicParameters param = null)
         {
-            using (SqlConnection sqlCon = new SqlConnection())
+            using (SqlConnection sqlCon = new SqlConnection(ConnectionString))
             {
                 sqlCon.Open();
                 var result = sqlCon.Query<T>(procedureName, param, commandType: CommandType.StoredProcedure);
@@ -57,7 +57,7 @@ namespace BulkyBook.DataAccess.Repository
 
         public IEnumerable<T> List<T>(string procedureName, DynamicParameters param = null)
         {
-            using (SqlConnection sqlCon = new SqlConnection())
+            using (SqlConnection sqlCon = new SqlConnection(ConnectionString))
             {
                 sqlCon.Open();
                 return sqlCon.Query<T>(procedureName, param, commandType: CommandType.StoredProcedure);
@@ -66,7 +66,7 @@ namespace BulkyBook.DataAccess.Repository
 
         public Tuple<IEnumerable<T1>, IEnumerable<T2>> List<T1, T2>(string procedureName, DynamicParameters param = null)
         {
-            using (SqlConnection sqlCon = new SqlConnection())
+            using (SqlConnection sqlCon = new SqlConnection(ConnectionString))
             {
                 sqlCon.Open();
                 var result = SqlMapper.QueryMultiple(sqlCon, procedureName, param,

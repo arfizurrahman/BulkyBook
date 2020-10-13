@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using BulkyBook.DataAccess.Repository.IRepository;
 using BulkyBook.Models;
+using BulkyBook.Utility;
+using Dapper;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BulkyBook.Areas.Admin.Controllers
@@ -27,7 +29,10 @@ namespace BulkyBook.Areas.Admin.Controllers
 
             if (id == null) return View(coverType);
 
-            coverType = _unitOfWork.CoverType.Get(id.GetValueOrDefault());
+            var parameter = new DynamicParameters();
+            parameter.Add("@Id", id); 
+            
+            coverType = _unitOfWork.SP_Call.OneRecord<CoverType>(SD.Proc_CoverType_Get, parameter);
 
             if (coverType == null) return NotFound();
 
@@ -40,10 +45,18 @@ namespace BulkyBook.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                var parameters = new DynamicParameters();
+                parameters.Add("@Name", coverType.Name);
+
                 if (coverType.Id == 0)
-                    _unitOfWork.CoverType.Add(coverType);
+                {
+                    _unitOfWork.SP_Call.Execute(SD.Proc_CoverType_Create, parameters);
+                }
                 else
-                    _unitOfWork.CoverType.Update(coverType);
+                {
+                    parameters.Add("@Id", coverType.Id);
+                    _unitOfWork.SP_Call.Execute(SD.Proc_CoverType_Update, parameters);
+                }
 
                 _unitOfWork.Save();
                 return RedirectToAction(nameof(Index));
@@ -51,26 +64,30 @@ namespace BulkyBook.Areas.Admin.Controllers
             return View(coverType);
         }
 
-        [HttpDelete]
-        public IActionResult Delete(int id)
-        {
-            var coverTypeFromDb = _unitOfWork.CoverType.Get(id);
-            if (coverTypeFromDb == null)
-                return Json(new { success = false, message = "Error while deleting!" });
-
-            _unitOfWork.CoverType.Remove(coverTypeFromDb);
-            _unitOfWork.Save();
-
-            return Json(new { success = true, message = "Delete Successful" });
-        }
+        
 
         #region API CALLS
 
         [HttpGet]
         public IActionResult GetAll()
         {
-            var allCategories = _unitOfWork.CoverType.GetAll();
+            var allCategories = _unitOfWork.SP_Call.List<CoverType>(SD.Proc_CoverType_GetAll,null);
             return Json(new { data = allCategories });
+        }
+
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            var parameter = new DynamicParameters();
+            parameter.Add("@Id",id);
+            var coverTypeFromDb = _unitOfWork.SP_Call.OneRecord<CoverType>(SD.Proc_CoverType_Get,parameter);
+            if (coverTypeFromDb == null)
+                return Json(new { success = false, message = "Error while deleting!" });
+
+            _unitOfWork.SP_Call.Execute(SD.Proc_CoverType_Delete, parameter);
+            _unitOfWork.Save();
+
+            return Json(new { success = true, message = "Delete Successful" });
         }
 
         #endregion
