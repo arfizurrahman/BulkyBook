@@ -460,8 +460,4 @@ C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\bin\Debug\netcoreapp3.1\r
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\BulkyBook.csproj.CoreCompileInputs.cache
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\BulkyBook.MvcApplicationPartsAssemblyInfo.cs
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\BulkyBook.MvcApplicationPartsAssemblyInfo.cache
-C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Categories\Create.cshtml.g.cs
-C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Categories\Delete.cshtml.g.cs
-C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Categories\Details.cshtml.g.cs
-C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Categories\Edit.cshtml.g.cs
-C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Categories\Index.cshtml.g.cs
+C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Category\Index.cshtml.g.cs
