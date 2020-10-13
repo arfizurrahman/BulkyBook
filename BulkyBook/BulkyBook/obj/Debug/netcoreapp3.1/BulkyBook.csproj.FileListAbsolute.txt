@@ -457,9 +457,6 @@ C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\bin\Debug\netcoreapp3.1\r
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
-C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\BulkyBook.csproj.CoreCompileInputs.cache
-C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\BulkyBook.MvcApplicationPartsAssemblyInfo.cs
-C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\BulkyBook.MvcApplicationPartsAssemblyInfo.cache
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Category\Index.cshtml.g.cs
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Category\Upsert.cshtml.g.cs
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_SaveAndBackToListButton.cshtml.g.cs
