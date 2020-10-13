@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
     <link href="~/lib/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
     <link href="~/lib/toastr/toastr.min.css" rel="stylesheet" />
-    <script src="~/lib/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    @*<script src="~/lib/feather.min.js"></script>*@
 </head>
 <body>
     <header>
@@ -51,21 +52,23 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted text-white-50 bg-primary">
-        <div class="container">
-            &copy; 2020 - BulkyBook
-        </div>
-    </footer>
+<footer class="border-top footer text-muted text-white-50 bg-primary">
+    <div class="container">
+        &copy; 2020 - BulkyBook
+    </div>
+</footer>
+<script>
+    feather.replace()
+</script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-ui/jquery-ui.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="~/lib/toastr/toastr.min.js"></script>
-    <script src="~/lib/sweetalert.min.js"></script>
-    <script>
-        feather.replace()
-    </script>
+<script src="~/lib/sweetalert.min.js"></script>
+<script src="https://kit.fontawesome.com/e19c476714.js"></script>
+    
     @RenderSection("Scripts", required: false)
 </body>
 </html>
