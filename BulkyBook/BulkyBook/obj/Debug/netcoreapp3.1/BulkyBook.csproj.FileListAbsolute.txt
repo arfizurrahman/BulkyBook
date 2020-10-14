@@ -469,3 +469,5 @@ C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\B
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\BulkyBook.MvcApplicationPartsAssemblyInfo.cache
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Index.cshtml.g.cs
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Upsert.cshtml.g.cs
+C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Company\Index.cshtml.g.cs
+C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Company\Upsert.cshtml.g.cs

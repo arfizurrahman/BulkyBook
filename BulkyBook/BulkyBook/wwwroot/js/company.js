@@ -19,9 +19,9 @@ function loadDataTable() {
                 'data': 'isAuthorizedCompany',
                 'render': function(data) {
                     if (data) {
-                        return `<input type="checkbox" disabled checked/>${null}`;
+                        return '<input type="checkbox" disabled checked/>';
                     } else {
-                        return `<input type="checkbox" disabled/>${null}`;
+                        return '<input type="checkbox" disabled/>';
                     }
                 }, 'width': '10%'
             },
