@@ -4,6 +4,6 @@ C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook.Utility\bin\Debug\netcore
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook.Utility\obj\Debug\netcoreapp3.1\BulkyBook.Utility.csprojAssemblyReference.cache
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook.Utility\obj\Debug\netcoreapp3.1\BulkyBook.Utility.AssemblyInfoInputs.cache
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook.Utility\obj\Debug\netcoreapp3.1\BulkyBook.Utility.AssemblyInfo.cs
-C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook.Utility\obj\Debug\netcoreapp3.1\BulkyBook.Utility.csproj.CoreCompileInputs.cache
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook.Utility\obj\Debug\netcoreapp3.1\BulkyBook.Utility.dll
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook.Utility\obj\Debug\netcoreapp3.1\BulkyBook.Utility.pdb
+C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook.Utility\obj\Debug\netcoreapp3.1\BulkyBook.Utility.csproj.CoreCompileInputs.cache
