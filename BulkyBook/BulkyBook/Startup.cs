@@ -46,6 +46,11 @@ namespace BulkyBook
                 options.LogoutPath = $"/Identity/Account/Logout";
                 options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
             });
+            services.AddAuthentication().AddFacebook(options =>
+            {
+                options.AppId = "672663723654591";
+                options.AppSecret = "a28fc75a9ec957f6f8a71fb3731379d1";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
