@@ -47,6 +47,32 @@ namespace BulkyBook.Areas.Admin.Controllers
             return Json(new { data = users });
         }
 
+        [HttpPost]
+        public IActionResult LockUnlock([FromBody] string id)
+        {
+            var user = _db.ApplicationUsers.FirstOrDefault(u => u.Id == id);
+            if (user == null)
+            {
+                return Json(new {success = false, message = "Error while Locking/Unlocking"});
+            }
+
+            var message = "locked";
+            if (user.LockoutEnd != null && user.LockoutEnd > DateTime.Now)
+            {
+                // User is locked, need to unlock
+                user.LockoutEnd = DateTime.Now;
+                message = "unlocked";
+            }
+            else
+            {
+                // User is unlocked, need to lock
+                user.LockoutEnd = DateTime.Now.AddYears(1000);
+            }
+
+            _db.SaveChanges();
+            return Json(new { success = true, message = "User was successfully " + message });
+        }
+
         #endregion
     }
 }
