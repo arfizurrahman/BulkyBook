@@ -18,6 +18,9 @@ namespace BulkyBook.DataAccess.Repository
             Company = new CompanyRepository(_db);
             CoverType = new CoverTypeRepository(_db);
             Product = new ProductRepository(_db);
+            ShoppingCart = new ShoppingCartRepository(_db);
+            OrderHeader = new OrderHeaderRepository(_db);
+            OrderDetails = new OrderDetailsRepository(_db);
             SP_Call = new SP_Call(_db);
         }
 
@@ -26,6 +29,9 @@ namespace BulkyBook.DataAccess.Repository
         public ICompanyRepository Company { get; }
         public ICoverTypeRepository CoverType { get; }
         public IProductRepository Product { get; }
+        public IShoppingCartRepository ShoppingCart { get; }
+        public IOrderHeaderRepository OrderHeader { get; }
+        public IOrderDetailsRepository OrderDetails { get; }
         public ISP_Call SP_Call { get; }
 
         public void Dispose()
