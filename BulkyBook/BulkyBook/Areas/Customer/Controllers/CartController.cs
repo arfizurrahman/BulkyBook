@@ -87,5 +87,27 @@ namespace BulkyBook.Areas.Customer.Controllers
             ModelState.AddModelError(String.Empty, "Verification email sent. Please check your email.");
             return RedirectToAction("Index");
         }
+
+        public IActionResult Plus(int cartId)
+        {
+            var cart = _unitOfWork.ShoppingCart.GetFirstOrDefault(c => c.Id == cartId, includeProperties: "Product");
+
+            cart.Count += 1;
+            cart.Price = SD.GetPriceBasedOnQuantity(cart.Count, cart.Product.Price, cart.Product.Price50,
+                cart.Product.Price100);
+            _unitOfWork.Save();
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Minus(int cartId)
+        {
+            var cart = _unitOfWork.ShoppingCart.GetFirstOrDefault(c => c.Id == cartId, includeProperties: "Product");
+
+            cart.Count -= 1;
+            cart.Price = SD.GetPriceBasedOnQuantity(cart.Count, cart.Product.Price, cart.Product.Price50,
+                cart.Product.Price100);
+            _unitOfWork.Save();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
