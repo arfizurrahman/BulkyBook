@@ -18,6 +18,6 @@ namespace BulkyBook.DataAccess.Repository.IRepository
         void Add(T entity);
         void Remove(int id);
         void Remove(T entity);
-        void Remove(IEnumerable<T> entities);
+        void RemoveRange(IEnumerable<T> entities);
     }
 }

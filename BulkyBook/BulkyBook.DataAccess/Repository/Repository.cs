@@ -73,7 +73,7 @@ namespace BulkyBook.DataAccess.Repository
             dbSet.Remove(entity);
         }
 
-        public void Remove(IEnumerable<T> entities)
+        public void RemoveRange(IEnumerable<T> entities)
         {
             dbSet.RemoveRange(entities);
         }

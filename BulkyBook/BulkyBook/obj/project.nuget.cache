@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7Nj3Xo3zIAQLI+K13z3A1UBDRknaQo5RXzFIzI+32N1hM2eQFl1cNHiBvaV8gqbktcGW1Ykbqa7a3KtIwh7x5g==",
+  "dgSpecHash": "hjCVY7NoGgqq65d19DGyBZe0J94zPFq0dL+tWUL57N2pEJcp8wFLd1J6KoTW1LrjTTjqeNt0OAiSq4j9gAzsuQ==",
   "success": true,
   "projectFilePath": "C:\\Projects\\Asp.net Core\\BulkyBook\\BulkyBook\\BulkyBook\\BulkyBook.csproj",
   "expectedPackageFiles": [
@@ -133,6 +133,7 @@
     "C:\\Users\\user\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.2\\sqlitepclraw.lib.e_sqlite3.2.0.2.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\sqlitepclraw.provider.dynamic_cdecl\\2.0.2\\sqlitepclraw.provider.dynamic_cdecl.2.0.2.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\starkbank-ecdsa\\1.2.0\\starkbank-ecdsa.1.2.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\stripe.net\\39.21.0\\stripe.net.39.21.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
