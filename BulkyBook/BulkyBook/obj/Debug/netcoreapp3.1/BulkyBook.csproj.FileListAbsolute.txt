@@ -525,3 +525,5 @@ C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\B
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\BulkyBook.MvcApplicationPartsAssemblyInfo.cache
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\UserName\Default.cshtml.g.cs
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Notifications.cshtml.g.cs
+C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\bin\Debug\netcoreapp3.1\Braintree.dll
+C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
