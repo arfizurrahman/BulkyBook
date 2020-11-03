@@ -515,9 +515,11 @@ C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\R
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\Cart\Index.cshtml.g.cs
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\Cart\Summary.cshtml.g.cs
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\bin\Debug\netcoreapp3.1\Stripe.net.dll
-C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\BulkyBook.csproj.CoreCompileInputs.cache
-C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\BulkyBook.MvcApplicationPartsAssemblyInfo.cs
-C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\BulkyBook.MvcApplicationPartsAssemblyInfo.cache
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\Cart\OrderConfirmation.cshtml.g.cs
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Order\Index.cshtml.g.cs
 C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Order\Details.cshtml.g.cs
+C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_ViewStart.cshtml.g.cs
+C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\bin\Debug\netcoreapp3.1\Twilio.dll
+C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\BulkyBook.csproj.CoreCompileInputs.cache
+C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\BulkyBook.MvcApplicationPartsAssemblyInfo.cs
+C:\Projects\Asp.net Core\BulkyBook\BulkyBook\BulkyBook\obj\Debug\netcoreapp3.1\BulkyBook.MvcApplicationPartsAssemblyInfo.cache
