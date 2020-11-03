@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
@@ -10,6 +11,7 @@ using BulkyBook.Models;
 using BulkyBook.Utility;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -25,25 +27,28 @@ namespace BulkyBook.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
+            ILogger<RegisterModel> logger,
+            IEmailSender emailSender,
             RoleManager<IdentityRole> roleManager,
             IUnitOfWork unitOfWork,
-            ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IWebHostEnvironment hostEnvironment)
         {
             _userManager = userManager;
+            _hostEnvironment = hostEnvironment;
             _signInManager = signInManager;
-            _roleManager = roleManager;
-            _unitOfWork = unitOfWork;
             _logger = logger;
             _emailSender = emailSender;
+            _roleManager = roleManager;
+            _unitOfWork = unitOfWork;
         }
 
         [BindProperty]
@@ -80,8 +85,10 @@ namespace BulkyBook.Areas.Identity.Pages.Account
             public string PhoneNumber { get; set; }
             public int? CompanyId { get; set; }
             public string Role { get; set; }
+
             public IEnumerable<SelectListItem> CompanyList { get; set; }
             public IEnumerable<SelectListItem> RoleList { get; set; }
+
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -90,27 +97,17 @@ namespace BulkyBook.Areas.Identity.Pages.Account
 
             Input = new InputModel()
             {
-                CompanyList = _unitOfWork.Company.GetAll().Select(c => new SelectListItem
+                CompanyList = _unitOfWork.Company.GetAll().Select(i => new SelectListItem
                 {
-                    Text = c.Name,
-                    Value = c.Id.ToString()
+                    Text = i.Name,
+                    Value = i.Id.ToString()
                 }),
-                RoleList = _roleManager.Roles.Where(u => u.Name != SD.Role_User_Indi).Select(x => x.Name).Select(r => new SelectListItem
+                RoleList = _roleManager.Roles.Where(u => u.Name != SD.Role_User_Indi).Select(x => x.Name).Select(i => new SelectListItem
                 {
-                    Text = r,
-                    Value = r
+                    Text = i,
+                    Value = i
                 })
             };
-
-            if (User.IsInRole(SD.Role_Employee))
-            {
-                Input.RoleList = _roleManager.Roles.Where(u => u.Name == SD.Role_User_Comp).Select(x => x.Name).Select(
-                    r => new SelectListItem
-                    {
-                        Text = r,
-                        Value = r
-                    });
-            }
 
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
@@ -132,12 +129,13 @@ namespace BulkyBook.Areas.Identity.Pages.Account
                     PostalCode = Input.PostalCode,
                     Name = Input.Name,
                     PhoneNumber = Input.PhoneNumber,
-                    Role = Input.Role,
+                    Role = Input.Role
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+
 
                     if (user.Role == null)
                     {
@@ -151,20 +149,50 @@ namespace BulkyBook.Areas.Identity.Pages.Account
                         }
                         await _userManager.AddToRoleAsync(user, user.Role);
                     }
+
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
                         "/Account/ConfirmEmail",
                         pageHandler: null,
-                        values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
+                        values: new { area = "Identity", userId = user.Id, code = code },
                         protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
+                    var PathToFile = _hostEnvironment.WebRootPath + Path.DirectorySeparatorChar.ToString()
+                        + "Templates" + Path.DirectorySeparatorChar.ToString() + "EmailTemplates"
+                        + Path.DirectorySeparatorChar.ToString() + "Confirm_Account_Registration.html";
+
+                    var subject = "Confirm Account Registration";
+                    string HtmlBody = "";
+                    using (StreamReader streamReader = System.IO.File.OpenText(PathToFile))
+                    {
+                        HtmlBody = streamReader.ReadToEnd();
+                    }
+
+                    //{0} : Subject  
+                    //{1} : DateTime  
+                    //{2} : Name  
+                    //{3} : Email  
+                    //{4} : Message  
+                    //{5} : callbackURL  
+
+                    string Message = $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.";
+
+                    string messageBody = string.Format(HtmlBody,
+                        subject,
+                        String.Format("{0:dddd, d MMMM yyyy}", DateTime.Now),
+                        user.Name,
+                        user.Email,
+                        Message,
+                        callbackUrl
+                        );
+
+
+                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email", messageBody);
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
-                        return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+                        return RedirectToPage("RegisterConfirmation", new { email = Input.Email });
                     }
                     else
                     {
@@ -175,7 +203,8 @@ namespace BulkyBook.Areas.Identity.Pages.Account
                         }
                         else
                         {
-                            return RedirectToAction("Index", "User", new {Area = "Admin"});
+                            //admin is registering a new user
+                            return RedirectToAction("Index", "User", new { Area = "Admin" });
                         }
                     }
                 }
@@ -186,17 +215,18 @@ namespace BulkyBook.Areas.Identity.Pages.Account
             }
             Input = new InputModel()
             {
-                CompanyList = _unitOfWork.Company.GetAll().Select(c => new SelectListItem
+                CompanyList = _unitOfWork.Company.GetAll().Select(i => new SelectListItem
                 {
-                    Text = c.Name,
-                    Value = c.Id.ToString()
+                    Text = i.Name,
+                    Value = i.Id.ToString()
                 }),
-                RoleList = _roleManager.Roles.Where(u => u.Name != SD.Role_User_Indi).Select(x => x.Name).Select(r => new SelectListItem
+                RoleList = _roleManager.Roles.Where(u => u.Name != SD.Role_User_Indi).Select(x => x.Name).Select(i => new SelectListItem
                 {
-                    Text = r,
-                    Value = r
+                    Text = i,
+                    Value = i
                 })
             };
+
             // If we got this far, something failed, redisplay form
             return Page();
         }
