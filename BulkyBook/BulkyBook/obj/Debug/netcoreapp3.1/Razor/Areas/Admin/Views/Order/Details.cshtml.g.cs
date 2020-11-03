@@ -34,7 +34,7 @@ using Microsoft.Extensions.Options;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0928fe2d8a34ae145129b8afc7a443f79ff321e5", @"/Areas/Admin/Views/Order/Details.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0e57a8b0ddd11eb4bcf5db31017a575304b3d9b4", @"/Areas/Admin/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"cc4873c68a8339b3b75c918d24bc2eae1047a60d", @"/Areas/Admin/_ViewImports.cshtml")]
     public class Areas_Admin_Views_Order_Details : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<BulkyBook.Models.ViewModels.OrderDetailsVM>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-area", "Admin", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);

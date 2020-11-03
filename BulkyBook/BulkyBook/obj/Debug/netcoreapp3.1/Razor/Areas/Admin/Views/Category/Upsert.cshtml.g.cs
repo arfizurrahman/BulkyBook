@@ -20,7 +20,7 @@ using BulkyBook;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"83b497b9e1c77e99c05236d57bd44b9b3a355699", @"/Areas/Admin/Views/Category/Upsert.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0e57a8b0ddd11eb4bcf5db31017a575304b3d9b4", @"/Areas/Admin/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"cc4873c68a8339b3b75c918d24bc2eae1047a60d", @"/Areas/Admin/_ViewImports.cshtml")]
     public class Areas_Admin_Views_Category_Upsert : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<BulkyBook.Models.Category>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("text-danger"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
