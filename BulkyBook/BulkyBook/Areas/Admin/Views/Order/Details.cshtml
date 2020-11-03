@@ -36,42 +36,49 @@
                                 <div class="col-3">Name</div>
                                 <div class="col-9">
                                     <input readonly="@disabled" asp-for="OrderHeader.Name" type="text" class="form-control" />
+                                    <span asp-validation-for="OrderHeader.Name" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="row my-1">
                                 <div class="col-3">Phone</div>
                                 <div class="col-9">
                                     <input readonly="@disabled" asp-for="OrderHeader.PhoneNumber" type="text" class="form-control" />
+                                    <span asp-validation-for="OrderHeader.PhoneNumber" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="row my-1">
                                 <div class="col-3">Address</div>
                                 <div class="col-9">
                                     <input readonly="@disabled" asp-for="OrderHeader.StreetAddress" type="text" class="form-control" />
+                                    <span asp-validation-for="OrderHeader.StreetAddress" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="row my-1">
                                 <div class="col-3">City</div>
                                 <div class="col-9">
                                     <input readonly="@disabled" asp-for="OrderHeader.City" type="text" class="form-control" />
+                                    <span asp-validation-for="OrderHeader.City" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="row my-1">
                                 <div class="col-3">State</div>
                                 <div class="col-9">
                                     <input readonly="@disabled" asp-for="OrderHeader.State" type="text" class="form-control" />
+                                    <span asp-validation-for="OrderHeader.State" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="row my-1">
                                 <div class="col-3">Zip Code</div>
                                 <div class="col-9">
                                     <input readonly="@disabled" asp-for="OrderHeader.PostalCode" type="text" class="form-control" />
+                                    <span asp-validation-for="OrderHeader.PostalCode" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="row my-1">
                                 <div class="col-3">Email</div>
                                 <div class="col-9">
                                     <input readonly="@disabled" asp-for="OrderHeader.ApplicationUser.Email" type="text" class="form-control" />
+                                    <span asp-validation-for="OrderHeader.ApplicationUser.Email" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="row my-1">
@@ -128,6 +135,11 @@
                                         <input asp-for="OrderHeader.PaymentStatus" type="text" readonly class="form-control" />
                                     </div>
                                 </div>
+                                @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+                                {
+                                    <input type="submit" value="Update Order Details" class="btn btn-warning form-control"
+                                           formaction="/Admin/Order/UpdateOrderDetails" formmethod="post" />
+                                }
                             }
 
                         </div>
@@ -203,8 +215,8 @@
                             }
 
                             @if (Model.OrderHeader.OrderStatus != SD.StatusRefunded &&
-                             Model.OrderHeader.OrderStatus != SD.StatusCancelled &&
-                             (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee)))
+                            Model.OrderHeader.OrderStatus != SD.StatusCancelled &&
+                            (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee)))
                             {
                                 <div class="pt-2">
                                     <a asp-action="CancelOrder" asp-route-id="@Model.OrderHeader.Id" class="btn btn-danger form-control">Cancel Order</a>
@@ -219,6 +231,7 @@
 </form>
 
 @section Scripts{
+    <partial name="_ValidationScriptsPartial" />
     <script>
         function validateInput() {
             console.log("Validate input called")
