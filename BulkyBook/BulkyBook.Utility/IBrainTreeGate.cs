@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Braintree;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using Braintree;
 
 namespace BulkyBook.Utility
 {
