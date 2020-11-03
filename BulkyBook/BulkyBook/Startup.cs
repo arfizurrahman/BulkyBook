@@ -43,6 +43,7 @@ namespace BulkyBook
             services.Configure<EmailOptions>(Configuration);
             services.Configure<StripeSettings>(Configuration.GetSection("Stripe"));
             services.Configure<TwilioSettings>(Configuration.GetSection("Twilio"));
+            services.Configure<BrainTreeSettings>(Configuration.GetSection("BrainTree"));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddControllersWithViews();
             services.AddRazorPages();
