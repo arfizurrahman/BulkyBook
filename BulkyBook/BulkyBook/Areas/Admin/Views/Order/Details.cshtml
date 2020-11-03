@@ -81,13 +81,13 @@
                             <div class="row my-1">
                                 <div class="col-3">Carrier</div>
                                 <div class="col-9">
-                                    <input readonly="@disabled" asp-for="OrderHeader.Carrier" type="text" class="form-control" />
+                                    <input readonly="@disabled" asp-for="OrderHeader.Carrier" id="carrier" type="text" class="form-control" />
                                 </div>
                             </div>
                             <div class="row my-1">
                                 <div class="col-3">Tracking</div>
                                 <div class="col-9">
-                                    <input readonly="@disabled" asp-for="OrderHeader.TrackingNumber" type="text" class="form-control" />
+                                    <input readonly="@disabled" asp-for="OrderHeader.TrackingNumber" id="trackingNumber" type="text" class="form-control" />
                                 </div>
                             </div>
                             <div class="row my-1">
@@ -141,7 +141,7 @@
                                             <div class="col-8">
                                                 <input hidden asp-for="@details.Id" />
                                                 <h6 class="text-primary my-0">@details.Product.Title</h6>
-                                                <small class="text-muted">Price : @details.Price</small><br/>
+                                                <small class="text-muted">Price : @details.Price</small><br />
                                                 <small class="text-muted">Quantity : @details.Count</small>
                                             </div>
                                             <div class="col-4">
@@ -161,22 +161,31 @@
                                     </div>
                                 </li>
                             </ul>
-                        @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
-                        {
-                            <br/>
-                            @if (Model.OrderHeader.OrderStatus == SD.StatusApproved)
+                            @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
                             {
-                                <a asp-action="StartProcessing" asp-route-id="@Model.OrderHeader.Id" class="btn btn-primary form-control">Start Processing</a>
+                                <br />
+                                @if (Model.OrderHeader.OrderStatus == SD.StatusApproved)
+                                {
+                                    <a asp-action="StartProcessing" asp-route-id="@Model.OrderHeader.Id" class="btn btn-primary form-control">Start Processing</a>
+                                }
+                                @if (Model.OrderHeader.OrderStatus == SD.StatusInProcess)
+                                {
+                                    <input type="submit" value="Ship Order" onclick="return validateInput();" class="btn btn-primary form-control" formaction="/Admin/Order/ShipOrder" formmethod="post" />
+                                }
                             }
-                            @if (Model.OrderHeader.OrderStatus == SD.StatusInProcess)
+                            else
                             {
-                                <input type="submit" value="Ship Order" onclick="validateInput()" class="btn btn-primary form-control" formaction="/Admin/Order/ShipOrder" formmethod="post"/>
+                                <label class="btn btn-primary form-control">@Model.OrderHeader.OrderStatus</label>
                             }
-                        }
-                        else
-                        {
-                            <label class="btn btn-primary form-control">@Model.OrderHeader.OrderStatus</label>
-                        }
+
+                            @if (Model.OrderHeader.OrderStatus != SD.StatusRefunded &&
+                                Model.OrderHeader.OrderStatus != SD.StatusCancelled &&
+                                (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee)))
+                            {
+                                <div class="pt-2">
+                                    <a asp-action="CancelOrder" asp-route-id="@Model.OrderHeader.Id" class="btn btn-danger form-control">Cancel Order</a>
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>
@@ -185,3 +194,32 @@
     </div>
 </form>
 
+@section Scripts{
+    <script>
+        function validateInput() {
+            console.log("Validate input called")
+            var tracking = document.getElementById("trackingNumber").value;
+            var carrier = document.getElementById("carrier").value;
+            if (tracking.toString() === '') {
+                swal("Error", "Please enter tracking number", "error");
+                return false;
+            } else if (carrier.toString() === '') {
+                swal("Error", "Please enter carrier", "error");
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        $(document).ready(function () {
+            var shippingDate = document.getElementById("shippingDate");
+            if (shippingDate.value === '1/1/0001') {
+                shippingDate.value = "";
+            }
+            var paymentDate = document.getElementById("paymentDate");
+            if (paymentDate.value === '1/1/0001') {
+                paymentDate.value = "";
+            }
+        });
+    </script>
+}
