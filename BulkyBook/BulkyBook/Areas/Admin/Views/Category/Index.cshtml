@@ -1,9 +1,10 @@
-﻿@model BulkyBook.Models.ViewModels.CategoryVM 
+﻿@model BulkyBook.Models.ViewModels.CategoryVM
 
 @{
     ViewData["Title"] = "Category";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 
 <br />
 <div class="row">
@@ -39,10 +40,10 @@
             </tr>
         }
     </table>
-    <div page-model="@Model.PagingInfo" page-classes-enabled="true" 
-         page-class="btn border" 
-         page-class-normal="btn btn-light" 
-         page-class-selected="btn btn-info active" 
+    <div page-model="@Model.PagingInfo" page-classes-enabled="true"
+         page-class="btn border"
+         page-class-normal="btn btn-light"
+         page-class-selected="btn btn-info active"
          class="btn-group float-right"></div>
 }
 else
@@ -58,7 +59,7 @@ else
             $.ajax({
                 type: 'DELETE',
                 url: url,
-                success: function(data) {
+                success: function (data) {
                     location.reload();
                 }
             });
