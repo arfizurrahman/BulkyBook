@@ -102,6 +102,16 @@ namespace BulkyBook.Areas.Identity.Pages.Account
                 })
             };
 
+            if (User.IsInRole(SD.Role_Employee))
+            {
+                Input.RoleList = _roleManager.Roles.Where(u => u.Name == SD.Role_User_Comp).Select(x => x.Name).Select(
+                    r => new SelectListItem
+                    {
+                        Text = r,
+                        Value = r
+                    });
+            }
+
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
